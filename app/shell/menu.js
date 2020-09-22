@@ -1,6 +1,6 @@
 const fs = require('fs');
 const { dialog } = require("electron").remote;
-const { swal } = require("sweetalert");
+
 const template = [
     {
         label: "File",
@@ -58,6 +58,7 @@ const template = [
         ]
     }
 ]
+
 module.exports = template;
 
 const actions = {

@@ -58,10 +58,11 @@ function createWindow() {
             minHeight: MIN_HEIGHT,
             autoHideMenuBar: false,
             webPreferences: {
-                nodeIntegration: true,
-                nodeIntegrationInWorker: true,
+                nodeIntegration: false,
+                nodeIntegrationInWorker: false,
                 nativeWindowOpen: true,
-                preload: path.join(__dirname, 'preload.js')
+                preload: path.join(__dirname, 'preload.js'),
+                enableRemoteModule: true
             },
             icon: path.join(__dirname, 'assets', 'icon_256.png'),
             frame: false,
@@ -87,7 +88,7 @@ function createWindow() {
     ipc.on('show-window', () => {
         showWindow();
     });
-    mainWindow.webContents.on('crashed', function () { })
+
     mainWindow.on('unresponsive', function () { })
     process.on('uncaughtException', function () { })
 }
@@ -96,6 +97,7 @@ function setupMenu(options) {
     const menu = Menu.buildFromTemplate(template);
     Menu.setApplicationMenu(menu);
 }
+
 let ready = false;
 
 app.on("ready", async () => {
@@ -114,6 +116,7 @@ app.on('activate', () => {
         createWindow();
     }
 });
+
 app.on('web-contents-created', (createEvent, contents) => {
     contents.on('will-attach-webview', attachEvent => {
         attachEvent.preventDefault();

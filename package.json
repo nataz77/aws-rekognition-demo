@@ -9,7 +9,7 @@
     "build": "electron-builder"
   },
   "build": {
-    "appId": "it.almaviva.awsfacerecognition",
+    "appId": "com.nataz77.awsfacerecognition",
     "directories": {
       "buildResources": "static"
     },
@@ -35,10 +35,14 @@
     "electron": "^10.1.2"
   },
   "dependencies": {
+    "@popperjs/core": "^2.4.4",
     "aws-sdk": "^2.757.0",
     "axios": "^0.20.0",
+    "bootstrap": "^4.5.2",
     "cross-env": "^7.0.2",
     "custom-electron-titlebar": "^3.2.4",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
   }
 }
