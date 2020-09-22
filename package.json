@@ -1,0 +1,44 @@
+{
+  "name": "awsfacerec",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "it.almaviva.awsfacerecognition",
+    "directories": {
+      "buildResources": "static"
+    },
+    "linux": {
+      "artifactName": "smnq-nix-${version}",
+      "target": "AppImage",
+      "icon": "assets/icons/favicon.ico"
+    },
+    "appImage": {
+      "description": "testappimage"
+    },
+    "win": {
+      "target": "portable",
+      "artifactName": "smnq-win-${version}.${ext}"
+    },
+    "mac": {
+      "icon": "assets/icons/favicon.ico"
+    }
+  },
+  "author": "s.natalini",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^10.1.2"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.757.0",
+    "axios": "^0.20.0",
+    "cross-env": "^7.0.2",
+    "custom-electron-titlebar": "^3.2.4",
+    "dotenv": "^8.2.0"
+  }
+}
